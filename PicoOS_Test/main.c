@@ -17,7 +17,7 @@ static void ledTask(void *arg);
 static void consoleTask(void *arg);
 
 /* the initial values for the LED task */
-static uint8_t t1 = (1 << PORTB5);
+static uint8_t t1 = (1 << PORTB7);
 
 /* The start task for the initialization of the 2 other tasks.
  * This task will be destroyed, when the program runs out of the
@@ -32,7 +32,7 @@ static void initialTask(void *arg) {
 static void ledTask(void *arg) {
     uint8_t *valuePtr = (uint8_t*) arg;
     uint8_t value = *valuePtr;
-    DDRB = 1 << PORTB5;
+    DDRB = 1 << PORTB7;
 
     while(1) {
         PORTB ^= value;
